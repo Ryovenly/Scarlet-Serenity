@@ -1,0 +1,123 @@
+<resources>
+    <string name="app_name">Scarlet Serenity</string>
+    <string name="bt_login">Log in !</string>
+    <string name="bt_login2">Start !</string>
+    <string name="error_unknown_error">erreur</string>
+    <string name="info_no_username_found">No pseudo</string>
+    <string name="questionCreateCharacter">Who are you? Or rather who were you?</string>
+    <string name="questionGender">Are you a girl or a boy?</string>
+    <string name="bt_validationCreateCharacter">Validate</string>
+    <string name="checkPseudo">You need to write your pseudo</string>
+    <string name="checkAll">You have to write your pseudo and select your gender</string>
+    <string name="createCharacter">Your character is created !</string>
+    <string name="content_character">Hi ! Your character is here</string>
+    <string name="content_createcharacter">Create your character now</string>
+    <string name="createCharacterMessage">Good! You will have to answer a series of questions so that I can get to know you a little more</string>
+    <string name="createCharacterMessageButton">Let\'s go</string>
+    <string name="question1">What\'s your principal goal in your life?</string>
+    <string name="a1question1">Become the strongest</string>
+    <string name="a2question1">Know all of the word</string>
+    <string name="a3question1">Live with my instinct</string>
+    <string name="a4question1">Wait for the best opportunities</string>
+    <string name="question2">What form do you prefer?</string>
+    <string name="a1question2">Square</string>
+    <string name="a2question2">Triangle</string>
+    <string name="a3question2">Round</string>
+    <string name="a4question2">Star</string>
+    <string name="question3">You find yourself in front of the enemy general protected by 100 men</string>
+    <string name="a1question3">Attack without thinking</string>
+    <string name="a2question3">You explode the barrels of powder</string>
+    <string name="a3question3">You sneak up to kill the chef</string>
+    <string name="question4">In your free time you like</string>
+    <string name="a4question3">You walk on a trap that kills others</string>
+    <string name="a1question4">Play sports</string>
+    <string name="a2question4">Studying</string>
+    <string name="a3question4">Climb trees</string>
+    <string name="a4question4">Play at the casino</string>
+    <string name="question5">Fan of famous game Danganronpa you would be</string>
+    <string name="a4question5">The Ultimate Lucky Makoto Naegi</string>
+    <string name="a1question5">The Ultimate Martial Artist Sakura Ôgami</string>
+    <string name="a2question5">The Ultimate Detective Kyôko Kirigiri</string>
+    <string name="a3question5">The Ultimate Assassin Maki Harukawa</string>
+    <string name="question6">You wake up 3000 years after the world turned to stone. Who do you want to release first?</string>
+    <string name="a1question6">A strong and enduring person</string>
+    <string name="a2question6">A renowned scientist</string>
+    <string name="a3question6">A person who can sneak around</string>
+    <string name="a4question6">A random person</string>
+    <string name="question7">An argument breaks out between your two best friends</string>
+    <string name="a1question7">You separate them with strength and conviction</string>
+    <string name="a2question7">You conduct an investigation to find out who is right</string>
+    <string name="a3question7">You take one of your friends discreetly without the other noticing</string>
+    <string name="a4question7">You wait for a shooting star to forget your friends\' dispute</string>
+    <string name="question8">The object that most suits you</string>
+    <string name="a1question8">Sword</string>
+    <string name="a2question8">Magic wand</string>
+    <string name="a3question8">Shuriken</string>
+    <string name="a4question8">Four leaf clovers</string>
+    <string name="question9">In an rpg game your class would be</string>
+    <string name="a1question9">Warrior</string>
+    <string name="a2question9">Magician</string>
+    <string name="question10">The animal that most characterizes you</string>
+    <string name="a3question9">Thief</string>
+    <string name="a4question9">Gentleman Luck</string>
+    <string name="a1question10">Lion</string>
+    <string name="a2question10">Owl</string>
+    <string name="a3question10">Cat</string>
+    <string name="a4question10">Rabbit</string>
+    <string name="quiz_strenght_title">You are a strong person !</string>
+    <string name="quiz_strenght_description">With such strength nothing will stop you! You deserve even more power! (+20 in strength)</string>
+    <string name="quiz_end">End</string>
+    <string name="quiz_int_title">You are an intelligent person !</string>
+    <string name="quiz_int_description">Your knowledge can help people and you can discover great spells ! (+20 in intelligence)</string>
+    <string name="quiz_agility_title">You are an agile person !</string>
+    <string name="quiz_agility_description">Fast and cunning you will be able to dodge and attack the enemy without him being able to notice it ! (+20 in agility)</string>
+    <string name="quiz_luck_title">You are a lucky person !</string>
+    <string name="quiz_luck_description">Luck is on your side, a guardian angel protects you and bless you in this life ! (+20 in luck)</string>
+    <string name="quiz_all_title">You are a versatile person !</string>
+    <string name="quiz_all_description">Complete, you are the ideal person to perfect all your senses in this world! (+7 in all)</string>
+    <string name="synopsis">Game fan mmorpg you unfortunately died in an accident. But before dying, the goddess of another world Kione needs valiant souls to save her world. Indeed, the war in the world of Selena has resulted in many deaths. They were invaded by bloodthirsty monsters. You can if you want to go to paradise by uninstalling the game but you can always come back when you want.</string>
+    <string name="understood">Understood</string>
+    <string name="strength">Strength</string>
+    <string name="intelligence">Intelligence</string>
+    <string name="agility">Agility</string>
+    <string name="luck">Luck</string>
+    <string name="health">Health</string>
+    <string name="mana">Mana</string>
+
+    // chat
+
+
+
+    <!-- NOTIFICATION SERVICE -->
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="notification_title">"Vous avez reçu une notification"</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="error_not_connected">Vous devez vous connecter !</string>
+    <string name="error_authentication_canceled">Authentification annulée&#8230;</string>
+    <string name="error_no_internet">Aucune connexion internet !</string>
+    <string name="connection_succeed">Authentification réussie !</string>
+    <string name="button_login_text_logged">Afficher le profil</string>
+    <string name="button_login_text_not_logged">Connexion</string>
+
+    <!-- LOGIN ACTIVITY -->
+    <string name="toolbar_title_login_activity">Votre Profil</string>
+    <string name="text_input_username">Nom d\'utilisateur</string>
+    <string name="text_view_email">Adresse email :</string>
+    <string name="button_update_account">Mettre à jour le nom d\'utilisateur</string>
+    <string name="button_delete_account">Supprimer mon compte</string>
+    <string name="button_sign_out_account">Déconnexion</string>
+    <string name="info_no_email_found">Auncune adresse email</string>
+    <string name="popup_message_confirmation_delete_account">Es-tu sûr(e) de vouloir supprimer ton compte ?</string>
+    <string name="popup_message_choice_yes">Oui !</string>
+    <string name="popup_message_choice_no">Non</string>
+    <string name="check_box_is_mentor">Etes-vous un mentor ?</string>
+
+    <!-- MENTOR_CHAT ACTIVITY -->
+    <string name="toolbar_title_mentor_chat_activity">Chats de discussions</string>
+    <string name="text_input_title_mentor_chat_activity">Composer votre message</string>
+    <string name="button_title_mentor_chat_activity">ENVOYER</string>
+    <string name="text_view_mentor_chat_error">Ce fil de discussion ne contient pour le moment aucun message&#8230;</string>
+    <string name="popup_title_permission_files_access">Cette application a besoin de permission pour fonctionner.</string>
+    <string name="toast_title_no_image_chosen">Aucune image choisie</string>
+</resources>
