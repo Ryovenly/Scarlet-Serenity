@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_book">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Description" />
+
+            <TextView
+                android:id="@+id/tv_strength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="strength" />
+
+            <TextView
+                android:id="@+id/tv_intelligence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="intelligence" />
+
+            <TextView
+                android:id="@+id/tv_agility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="agility" />
+
+            <TextView
+                android:id="@+id/tv_luck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="luck" />
+
+            <TextView
+                android:id="@+id/tv_po"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="po" />
+
+            <TextView
+                android:id="@+id/tv_reward"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="reward" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_monster"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            tools:srcCompat="@tools:sample/avatars" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

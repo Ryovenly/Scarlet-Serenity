@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fantasy"
+        android:background="@drawable/scarlet_serenity1"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -22,14 +22,16 @@
             android:fontFamily="@font/alex_brush"
             android:text="Scarlet Serenity"
             android:textColor="#BD0C0C"
-            android:textSize="50sp" />
+            android:textSize="50sp"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btLogin"
             style="@style/FirebaseUI.Button.AccountChooser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:layout_marginTop="150dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

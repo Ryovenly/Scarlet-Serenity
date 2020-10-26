@@ -16,29 +16,50 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".controller.CharacterActivity">
+        <activity android:name=".controller.character.CharacterActivity">
         </activity>
 
-        <activity android:name=".controller.CreateCharacterActivity">
+        <activity android:name=".controller.once.CreateCharacterActivity">
         </activity>
 
-        <activity android:name=".controller.QuizActivity">
+        <activity android:name=".controller.once.QuizActivity">
         </activity>
 
-        <activity android:name=".controller.SynopsisActivity">
+        <activity android:name=".controller.once.SynopsisActivity">
         </activity>
 
-        <activity android:name=".controller.MainCharacterActivity">
+        <activity android:name=".controller.character.MainCharacterActivity">
         </activity>
 
-        <activity android:name=".controller.ChatActivity">
+        <activity android:name=".controller.multi.ChatActivity">
         </activity>
 
-        <activity android:name=".controller.TchatActivity">
+        <activity android:name=".controller.multi.LobbyActivity">
         </activity>
 
-        <activity android:name=".controller.LobbyActivity">
-        </activity>
+        <activity android:name=".controller.BaseActivity" />
+
+        <activity android:name=".controller.multi.LobbyMultiActivity" />
+
+        <activity android:name=".controller.multi.ShifumiActivity" />
+
+        <activity android:name=".controller.once.SpeechActivity" />
+
+        <activity android:name=".controller.once.BestiaireActivity" />
+
+        <activity android:name=".controller.vote.CreateVoteActivity" />
+
+        <activity android:name=".controller.vote.PurposeActivity" />
+
+        <activity android:name=".controller.vote.ParticipateVoteLobbyActivity" />
+
+        <activity android:name=".controller.vote.VoteMainActivity" />
+
+        <activity android:name=".controller.vote.ParticipateVote" />
+
+
+
+
 
 
         <meta-data

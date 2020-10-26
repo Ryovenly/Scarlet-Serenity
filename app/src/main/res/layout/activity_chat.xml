@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingTop="16dp"
+    android:paddingTop="1dp"
     android:paddingBottom="16dp"
-    tools:context=".controller.TchatActivity">
+    tools:context=".controller.multi.ChatActivity">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/bt_returnChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/list_chat"
+        android:id="@+id/list_chatRV"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
@@ -18,18 +31,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="8dp"
         android:elevation="12dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="8dp"
+        android:paddingEnd="16dp">
 
         <EditText
             android:id="@+id/edittext_chat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Type message here..."
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:hint="Type message here..." />
 
         <ImageView
             android:id="@+id/button_send"
@@ -38,10 +51,9 @@
             android:layout_gravity="center_vertical"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:src="@drawable/ic_add_circle_black_24px" />
+            android:src="@drawable/ic_send_pink" />
 
     </LinearLayout>
-
 
 
 </LinearLayout>

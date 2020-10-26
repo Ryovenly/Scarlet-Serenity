@@ -4,7 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="controller.LobbyActivity">
+    android:background="@color/colorAccent"
+    tools:context=".controller.multi.LobbyActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/bt_general"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="General" />
+
+        <Button
+            android:id="@+id/bt_general2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="General 2" />
+    </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -16,40 +37,52 @@
             android:id="@+id/edittext_roomid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Room ID"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
+            android:gravity="center_horizontal"
+            android:hint="Room ID"
             android:inputType="number"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:gravity="center_horizontal" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/button_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:paddingStart="32dp"
             android:paddingEnd="32dp"
             android:text="Enter"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edittext_roomid"
-            android:layout_marginTop="32dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/edittext_roomid" />
 
         <TextView
             android:id="@+id/textview_error_enter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:visibility="invisible"
-            android:textColor="@android:color/holo_red_dark"
             android:text="Please enter a room ID"
+            android:textColor="@android:color/holo_red_dark"
+            android:visibility="invisible"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/button_enter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+        <Button
+            android:id="@+id/bt_returnLobby"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Retour" />
+    </FrameLayout>
 
 </FrameLayout>

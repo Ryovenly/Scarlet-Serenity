@@ -17,7 +17,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/imageView2"
+                android:id="@+id/ivCharacterAvatar"
                 android:layout_width="50dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
@@ -81,58 +81,81 @@
             tools:visibility="visible">
 
             <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/acces-multi"
+                android:layout_width="94dp"
+                android:layout_height="79dp"
                 android:layout_gravity="center"
                 android:layout_weight="2"
-                app:srcCompat="@android:drawable/btn_star" />
+                app:srcCompat="@drawable/multi" />
 
             <ImageView
-                android:id="@+id/imageView4"
+                android:id="@+id/ivCharacterBody"
                 android:layout_width="250dp"
-                android:layout_height="250dp"
+                android:layout_height="400dp"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/female_1" />
+                app:srcCompat="@drawable/girl" />
 
             <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:id="@+id/bt_star"
+                android:layout_width="79dp"
+                android:layout_height="65dp"
                 android:layout_gravity="center"
                 android:layout_weight="2"
                 app:srcCompat="@android:drawable/btn_star_big_on" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="50dp"
-            android:gravity="bottom"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView6"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/galaxy" />
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
 
             <Button
-                android:id="@+id/bt_chat"
+                android:id="@+id/bt_vote_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Chat" />
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/red_orange" />
-
+                android:text="Voter" />
         </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:layout_marginTop="20dp"
+                android:foregroundGravity="bottom"
+                android:gravity="bottom"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/iv_bestiaire"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/bestiaire" />
+
+                <Button
+                    android:id="@+id/bt_chat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Chat" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/red_orange" />
+
+            </LinearLayout>
+        </FrameLayout>
 
     </LinearLayout>
 </RelativeLayout>

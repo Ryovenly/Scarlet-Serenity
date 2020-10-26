@@ -3,21 +3,24 @@ package com.akane.scarletserenity.controller
 import android.app.Activity
 import android.content.Intent
 import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import androidx.annotation.RequiresApi
 import com.akane.scarletserenity.R
-import com.akane.scarletserenity.model.UserHelper
+import com.akane.scarletserenity.controller.character.CharacterActivity
+import com.akane.scarletserenity.model.user.UserHelper
 import com.firebase.ui.auth.AuthUI
+import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
 
 
     private lateinit var mp: MediaPlayer
@@ -34,10 +37,13 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Log.d("Oncreate", "test")
+
+        speech(getString(R.string.welcomeSpeech))
 
         // variables
 
@@ -72,7 +78,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    val user = Firebase.auth.currentUser
 
     private fun createUserInFirestore(){
 
@@ -82,7 +87,7 @@ class MainActivity : AppCompatActivity() {
             val username = this.user?.displayName
 
             UserHelper.createUser(uid, username)
-            Log.d("ça marche", "on est là")
+            Log.d("ça marche", "Utilisateur créé")
 
         }
     }
@@ -136,22 +141,22 @@ class MainActivity : AppCompatActivity() {
         val response = IdpResponse.fromResultIntent(data)
         if (requestCode == RC_SIGN_IN) {
             if (resultCode == Activity.RESULT_OK) { // SUCCESS
-                createUserInFirestore()
-                //showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed))
+                //this.createUserInFirestore()
+                Toast.makeText(getApplicationContext(), getString(R.string.connection_succeed), Toast.LENGTH_LONG).show();
+
             }
-//            else { // ERRORS
-//                if (response == null) {
-//                    //showSnackBar(
-//                        this.coordinatorLayout,
-//                        getString(R.string.error_authentication_canceled)
-//                    )
-//                } else if (response.getErrorCode() === ErrorCodes.NO_NETWORK) {
-//                    showSnackBar(this.coordinatorLayout, getString(R.string.error_no_internet))
-//                } else if (response.getErrorCode() === ErrorCodes.UNKNOWN_ERROR) {
-//                    showSnackBar(this.coordinatorLayout, getString(R.string.error_unknown_error))
-//                }
-//            }
+            else { // ERRORS
+                if (response == null) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_authentication_canceled), Toast.LENGTH_LONG).show();
+                } else if (response.error?.errorCode == ErrorCodes.NO_NETWORK) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_no_internet), Toast.LENGTH_LONG).show();
+                } else if (response.error?.errorCode == ErrorCodes.UNKNOWN_ERROR) {
+                    Toast.makeText(getApplicationContext(), getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show();
+                }
+            }
         }
     }
+
+
 
 }
