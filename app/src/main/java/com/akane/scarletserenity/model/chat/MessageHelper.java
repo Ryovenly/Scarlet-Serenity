@@ -1,5 +1,6 @@
-package com.akane.scarletserenity.model;
+package com.akane.scarletserenity.model.chat;
 
+import com.akane.scarletserenity.model.chat.ChatHelper;
 import com.google.firebase.firestore.Query;
 
 public class MessageHelper {

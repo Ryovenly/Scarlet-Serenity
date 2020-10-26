@@ -1,4 +1,4 @@
-package com.akane.scarletserenity.controller
+package com.akane.scarletserenity.controller.character
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -8,9 +8,12 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import com.akane.scarletserenity.R
+import com.akane.scarletserenity.controller.BaseActivity
+import com.akane.scarletserenity.controller.once.BestiaireActivity
 import com.akane.scarletserenity.controller.multi.LobbyActivity
 import com.akane.scarletserenity.controller.multi.LobbyMultiActivity
 import com.akane.scarletserenity.controller.once.SpeechActivity
+import com.akane.scarletserenity.controller.vote.VoteMainActivity
 import com.akane.scarletserenity.model.character.Character
 import com.akane.scarletserenity.model.character.CharacterHelper
 import com.akane.scarletserenity.model.monster.Monster
@@ -47,21 +50,25 @@ class MainCharacterActivity : BaseActivity(){
         val mButton = findViewById<Button>(R.id.bt_chat) as Button
         //mButton.text = getString(R.string.understood)
 
-        mButton.setOnClickListener() {
+        mButton.setOnClickListener {
             startChatActivity()
         }
 
-        acces_multi.setOnClickListener(){
+        acces_multi.setOnClickListener {
             startMultiActivity()
         }
 
-        bt_star.setOnClickListener(){
+        bt_star.setOnClickListener {
             startSpeechActivity()
         }
 
         iv_bestiaire.setOnClickListener {
             startBestiaireActivity()
            // MonsterHelper.createMonster(monster)
+        }
+
+        bt_vote_activity.setOnClickListener {
+            startVoteActivity()
         }
 
     }
@@ -141,6 +148,11 @@ class MainCharacterActivity : BaseActivity(){
 
     private fun startBestiaireActivity() {
         val intent = Intent(this, BestiaireActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startVoteActivity() {
+        val intent = Intent(this, VoteMainActivity::class.java)
         startActivity(intent)
     }
 

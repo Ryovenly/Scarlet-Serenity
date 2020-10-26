@@ -1,4 +1,4 @@
-package com.akane.scarletserenity.model
+package com.akane.scarletserenity.model.character
 
 import android.os.Build
 import androidx.annotation.RequiresApi

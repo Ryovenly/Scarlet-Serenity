@@ -1,4 +1,4 @@
-package com.akane.scarletserenity.model
+package com.akane.scarletserenity.model.chat
 
 
 import com.google.firebase.Timestamp

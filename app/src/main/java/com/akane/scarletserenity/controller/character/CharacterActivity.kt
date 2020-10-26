@@ -1,4 +1,4 @@
-package com.akane.scarletserenity.controller
+package com.akane.scarletserenity.controller.character
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -10,6 +10,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.akane.scarletserenity.R
+import com.akane.scarletserenity.controller.BaseActivity
+import com.akane.scarletserenity.controller.MainActivity
 import com.akane.scarletserenity.controller.once.CreateCharacterActivity
 import com.akane.scarletserenity.model.character.Character
 import com.akane.scarletserenity.model.character.CharacterHelper
