@@ -67,7 +67,7 @@ class MainActivity : BaseActivity() {
             if (this.checkCurrentUser()) {
                 Log.d("Log", "Changement d'activity")
                 mBtLogin.setText(R.string.bt_login2)
-                createUserInFirestore()
+               // createUserInFirestore()
                 mp.stop()
                 this.startCharacterActivity()
             } else {
@@ -79,18 +79,15 @@ class MainActivity : BaseActivity() {
 
 
 
-    private fun createUserInFirestore(){
-
-        if (this.checkCurrentUser() != null){
-
-            val uid = this.user?.uid
-            val username = this.user?.displayName
-
-            UserHelper.createUser(uid, username)
-            Log.d("ça marche", "Utilisateur créé")
-
-        }
-    }
+//    private fun createUserInFirestore(){
+//
+//        val uid = this.user?.uid
+//        val username = this.user?.displayName
+//
+//        UserHelper.createUser(uid, username)
+//        Log.d("ça marche", "Utilisateur créé")
+//
+//    }
 
     private fun startSignInActivity(){
         val providers = arrayListOf(

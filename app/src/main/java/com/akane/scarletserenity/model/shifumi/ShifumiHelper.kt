@@ -64,6 +64,15 @@ object ShifumiHelper {
             )
     }
 
+
+    fun setWinner(roomId: String, winner: String): Task<Void>? {
+        return getShifumiCollection()
+            ?.document(roomId)
+            ?.update(
+                "winner", winner
+            )
+    }
+
     // --- COLLECTION REFERENCE ---
 
     fun getShifumiGameCollection(roomId: String): CollectionReference? {
@@ -114,6 +123,7 @@ object ShifumiHelper {
             Pair("choicePlayer2", choice)
         ))
     }
+
 
     fun updateScorePlayer1(roomId: String, score:Int): Task<Void>? {
         return getShifumiGameCollection(

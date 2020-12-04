@@ -14,10 +14,15 @@ import com.akane.scarletserenity.controller.multi.LobbyActivity
 import com.akane.scarletserenity.controller.multi.LobbyMultiActivity
 import com.akane.scarletserenity.controller.once.SpeechActivity
 import com.akane.scarletserenity.controller.vote.VoteMainActivity
+import com.akane.scarletserenity.controller.world.WorldActivity
+import com.akane.scarletserenity.model.GlideApp
 import com.akane.scarletserenity.model.character.Character
 import com.akane.scarletserenity.model.character.CharacterHelper
 import com.akane.scarletserenity.model.monster.Monster
+import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_main_character.*
+import kotlinx.android.synthetic.main.activity_profil_character.*
 
 class MainCharacterActivity : BaseActivity(){
 
@@ -71,19 +76,41 @@ class MainCharacterActivity : BaseActivity(){
             startVoteActivity()
         }
 
+        ivCharacterAvatar.setOnClickListener {
+            startProfileCharacterActivity()
+        }
+
+        bt_world.setOnClickListener {
+            startWorldActivity()
+        }
+
     }
 
 
 
     private fun viewGender(){
-        val gender= modelCharacter?.gender
+        val gender = modelCharacter?.gender
+        val avatar = modelCharacter.img!!
+
+        if (avatar.isNullOrEmpty()){
+            if (gender == "FEMALE"){
+                ivCharacterAvatar.setImageResource(R.drawable.female_1)
+            } else {
+                ivCharacterAvatar.setImageResource(R.drawable.male_1)
+            }
+        } else{
+            val storageReference = Firebase.storage.getReferenceFromUrl(modelCharacter.img!!)
+
+            GlideApp.with(applicationContext)
+                .load(storageReference)
+                .into(ivCharacterAvatar)
+        }
+
 
         if (gender == "FEMALE"){
             ivCharacterBody.setImageResource(R.drawable.girl)
-            ivCharacterAvatar.setImageResource(R.drawable.female_1)
         } else {
             ivCharacterBody.setImageResource(R.drawable.boy)
-            ivCharacterAvatar.setImageResource(R.drawable.male_1)
         }
     }
 
@@ -153,6 +180,16 @@ class MainCharacterActivity : BaseActivity(){
 
     private fun startVoteActivity() {
         val intent = Intent(this, VoteMainActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startProfileCharacterActivity() {
+        val intent = Intent(this, ProfilCharacterActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun startWorldActivity() {
+        val intent = Intent(this, WorldActivity::class.java)
         startActivity(intent)
     }
 

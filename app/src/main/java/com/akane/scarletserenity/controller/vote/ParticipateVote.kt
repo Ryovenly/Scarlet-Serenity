@@ -21,6 +21,9 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_participate_vote.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.time.days
@@ -29,6 +32,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
 
     var purposes = ArrayList<Purpose>()
     var voters = 0
+    var isVoted = false
     private lateinit var scrutin:Scrutin
     private lateinit var purpose: Purpose
     lateinit var adapter: PurposeParticipateAdapter
@@ -44,6 +48,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
         getScrutin()
         initListRecyclerView()
         onViewListener()
+
 
     }
 
@@ -64,7 +69,9 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
         adapter = PurposeParticipateAdapter(purposes)
         rv_purpose_create.adapter = adapter
         adapter.setClickListener(this)
-        listenForPurposes()
+
+            listenForPurposes()
+
     }
 
 
@@ -86,7 +93,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
             }
     }
 
-    private fun listenForPurposes() {
+     private fun listenForPurposes() {
 
         val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
         voters = 0
@@ -113,58 +120,42 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
                 tv_voters.text = "Nombre de votants : $voters"
                // initVoters()
                 Log.d("TAG", "Voters : $voters ", exception)
+                checkVoter()
             }
 
     }
 
     override fun onItemClick(view: View?, position: Int) {
 
-        val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
-        var isVoted = false
+        checkVoter()
 
-//        for (purpose in purposes) {
-//            ScrutinHelper.getVoterCollection(scrutinId, purpose.title)
-//                ?.whereEqualTo("id", user?.uid.toString())
-//                ?.get()
-//                ?.addOnSuccessListener { votersData->
-//                    votersData.contains(element = position.days)
-//                    for (voter in votersData){
-//                        isVoted = true
-//                        Log.d("TAG", "Voters loop : $isVoted " )
-//                    }
-//                }
+        if(isVoted == false) {
+            Log.d("TAG", "Voters 1 : $isVoted " )
+            view?.findViewById<Button>(R.id.bt_voter)?.text = "A voté"
 
-            if(isVoted == false) {
-                Log.d("TAG", "Voters 1 : $isVoted " )
-                view?.findViewById<Button>(R.id.bt_voter)?.text = "A voté"
-
-                CharacterHelper.getCharacter(user?.uid)
-                    .addOnSuccessListener { documentSnapshot ->
-                        modelCharacter = documentSnapshot.toObject(Character::class.java)!!
-                        val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
-                        ScrutinHelper.createVote(
-                            scrutinId,
-                            purposes[position].title,
-                            Voter(modelCharacter.pseudo, user?.uid),
-                            user?.uid!!
-                        )
-                    }
+            CharacterHelper.getCharacter(user?.uid)
+                .addOnSuccessListener { documentSnapshot ->
+                    modelCharacter = documentSnapshot.toObject(Character::class.java)!!
+                    val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
+                    ScrutinHelper.createVote(
+                        scrutinId,
+                        purposes[position].title,
+                        Voter(modelCharacter.pseudo, user?.uid),
+                        user?.uid!!
+                    )
+                }
 
 
-                Toast.makeText(this, "COUCOU", Toast.LENGTH_SHORT).show()
-            } else {
-                Log.d("TAG", "Voters 2 : $isVoted " )
-                view?.findViewById<Button>(R.id.bt_voter)?.text = "Déjà voté"
-                Toast.makeText(this, "Déjà Voté ^^", Toast.LENGTH_SHORT).show()
-            }
+            Toast.makeText(this, "COUCOU", Toast.LENGTH_SHORT).show()
+        } else {
+            Log.d("TAG", "Voters 2 : $isVoted " )
+            view?.findViewById<Button>(R.id.bt_voter)?.text = "Déjà voté"
+            Toast.makeText(this, "Déjà Voté ^^", Toast.LENGTH_SHORT).show()
+        }
 
 
-   //     }
-
-
-// }
-
-    }
+ }
+    
 
 
     @SuppressLint("SetTextI18n")
@@ -192,6 +183,26 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
     private fun initVoters(){
         tv_voters.text = "Nombre de votants : $voters"
         Log.d("TAG", "Voters : $voters ")
+    }
+
+    private fun checkVoter(){
+        val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
+        Log.d("TAG", "Voters check : $isVoted " )
+        for (purpose in purposes) {
+            ScrutinHelper.getVoterCollection(scrutinId, purpose.title)
+                ?.document(user?.uid.toString())
+                ?.get()
+                ?.addOnSuccessListener { documentSnapshot ->
+                    if (documentSnapshot != null && documentSnapshot.exists().not()) {
+                        isVoted = false
+                        Log.d("TAG", "Voters true : $isVoted " )
+                    } else {
+                        isVoted = true
+                        Log.d("TAG", "No such document")
+                        Log.d("TAG", "Voters false : $isVoted " )
+                    }
+                }
+        }
     }
 
 }

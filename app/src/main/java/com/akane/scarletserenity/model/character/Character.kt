@@ -22,9 +22,10 @@ class Character(
     var agility: Int?,
     var luck: Int?,
     var created: String?,
-    var lastLogin: String?
+    var lastLogin: String?,
+    var img: String?
                 ){
     @RequiresApi(Build.VERSION_CODES.O)
     constructor() : this("", "", 100,0,0,100,100,0,0,0,
-        0,0,0,0,0,"","")
+        0,0,0,0,0,"","","")
 }

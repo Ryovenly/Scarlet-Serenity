@@ -18,9 +18,9 @@ public class CharacterHelper  {
 
     public static Task<Void> createCharacter(String uid, String pseudo, String gender, Integer money, Integer hpMax, Integer manaMax, Integer staminaMax,
                                              Integer hungerMax, Integer hp, Integer mana, Integer stamina, Integer hunger, Integer strength,
-                                             Integer intelillgence, Integer agility, Integer luck, String created, String lastLogin) {
+                                             Integer intelillgence, Integer agility, Integer luck, String created, String lastLogin, String img) {
         Character characterToCreate = new Character(pseudo, gender, money,hpMax,manaMax,staminaMax,hungerMax,hp,mana,stamina,hunger,strength,intelillgence,
-                agility,luck, created,lastLogin);
+                agility,luck, created,lastLogin, img);
         return CharacterHelper.getCharacterCollection(uid).document("character").set(characterToCreate);
     }
 
@@ -34,6 +34,10 @@ public class CharacterHelper  {
 
     public static Task<Void> updatePseudo( String uid, String pseudo) {
         return CharacterHelper.getCharacterCollection(uid).document("character").update("pseudo", pseudo);
+    }
+
+    public static Task<Void> updateImage( String uid, String img) {
+        return CharacterHelper.getCharacterCollection(uid).document("character").update("img", img);
     }
 
     // Rajouter les différentes stats

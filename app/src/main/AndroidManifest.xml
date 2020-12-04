@@ -41,7 +41,8 @@
 
         <activity android:name=".controller.multi.LobbyMultiActivity" />
 
-        <activity android:name=".controller.multi.ShifumiActivity" />
+        <activity android:name=".controller.multi.ShifumiActivity"
+                  android:launchMode = "singleTop"/>
 
         <activity android:name=".controller.once.SpeechActivity" />
 
@@ -56,6 +57,10 @@
         <activity android:name=".controller.vote.VoteMainActivity" />
 
         <activity android:name=".controller.vote.ParticipateVote" />
+
+        <activity android:name=".controller.character.ProfilCharacterActivity" />
+
+        <activity android:name=".controller.world.WorldActivity" />
 
 
 

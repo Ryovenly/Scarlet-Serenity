@@ -30,7 +30,7 @@ class MonsterAdapter(val monsters: List<Monster>): RecyclerView.Adapter<MonsterA
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val monster = monsters[position]
 
-            holder.itemView.tv_name.text = "${holder.itemView.context.getString((R.string.name))}: ${monster.name}"
+            holder.itemView.tv_pseudo.text = "${holder.itemView.context.getString((R.string.name))}: ${monster.name}"
             holder.itemView.tv_description.text = "${holder.itemView.context.getString((R.string.description))}: ${monster.description}"
             holder.itemView.tv_strength.text = "${holder.itemView.context.getString((R.string.strength))}: ${monster.strength}"
             holder.itemView.tv_intelligence.text = "${holder.itemView.context.getString((R.string.intelligence))}: ${monster.intelligence}"
@@ -70,7 +70,7 @@ class MonsterAdapter(val monsters: List<Monster>): RecyclerView.Adapter<MonsterA
         private var img: ImageView? = null
 
         init {
-            name = itemView.findViewById(R.id.tv_name)
+            name = itemView.findViewById(R.id.tv_pseudo)
             description = itemView.findViewById(R.id.tv_description)
             strength = itemView.findViewById(R.id.tv_strength)
             intelligence = itemView.findViewById(R.id.tv_intelligence)

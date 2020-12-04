@@ -1,12 +1,18 @@
 package com.akane.scarletserenity.controller.multi
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.akane.scarletserenity.R
 import com.akane.scarletserenity.controller.BaseActivity
+import com.akane.scarletserenity.controller.character.MainCharacterActivity
+import com.akane.scarletserenity.controller.vote.VoteMainActivity
+import com.akane.scarletserenity.model.character.Character
+import com.akane.scarletserenity.model.character.CharacterHelper
 import com.akane.scarletserenity.model.shifumi.ShifumiGame
 import com.akane.scarletserenity.model.shifumi.ShifumiHelper
 import com.akane.scarletserenity.model.shifumi.ShifumiPlayer
@@ -16,12 +22,12 @@ import kotlinx.android.synthetic.main.activity_shifumi.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class ShifumiActivity: BaseActivity() {
 
     private var roomId: String? = null
     var time = 10000L
-    var roundFinish = false
     var gameFinish = false
     var isReady = false
 
@@ -41,8 +47,8 @@ class ShifumiActivity: BaseActivity() {
         ShifumiGame(
             "",
             "",
-            6,
-            14,
+            0,
+            0,
             10000L,
             false,
             false
@@ -70,7 +76,7 @@ class ShifumiActivity: BaseActivity() {
 
 
 
-//        GlobalScope.async{
+//        GlobalScope.launch{
 //            val finish: Boolean = timer()
 //
 //            if (finish == true){
@@ -128,8 +134,8 @@ class ShifumiActivity: BaseActivity() {
 
 
 
-        var scorePlayer = 5
-        var scoreOpponent = 6
+        var scorePlayer = 0
+        var scoreOpponent = 0
 
         if (user?.uid == roomData.userId1){
 
@@ -303,7 +309,7 @@ class ShifumiActivity: BaseActivity() {
 
     private fun showChoice(){
 
-        GlobalScope.async{
+        GlobalScope.launch{
             waitShowPlayer()
             waitShowOpponent()
         }
@@ -311,26 +317,29 @@ class ShifumiActivity: BaseActivity() {
     }
 
     suspend fun waitShowPlayer() {
-
         if (choicePlayer == "rock"){
-            bt_choicePlayer.setImageResource(R.drawable.pierre)
-            delay(3000)
-            bt_choicePlayer.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choicePlayer.setImageResource(R.drawable.pierre) }
+            delay(1000)
+            this.runOnUiThread { bt_choicePlayer.setImageResource(R.drawable.nothing) }
+
 
         } else if (choicePlayer == "paper"){
-            bt_choicePlayer.setImageResource(R.drawable.feuille)
-            delay(3000)
-            bt_choicePlayer.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choicePlayer.setImageResource(R.drawable.feuille) }
+            delay(1000)
+            this.runOnUiThread{bt_choicePlayer.setImageResource(R.drawable.nothing)}
+
 
         } else if (choicePlayer == "scissors"){
-            bt_choicePlayer.setImageResource(R.drawable.ciseaux)
-            delay(3000)
-            bt_choicePlayer.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choicePlayer.setImageResource(R.drawable.ciseaux) }
+            delay(1000)
+            this.runOnUiThread{bt_choicePlayer.setImageResource(R.drawable.nothing)}
+
 
         } else {
-            bt_choicePlayer.setImageResource(R.drawable.nothing)
-            delay(3000)
-            bt_choicePlayer.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choicePlayer.setImageResource(R.drawable.nothing) }
+            delay(1000)
+            this.runOnUiThread{bt_choicePlayer.setImageResource(R.drawable.nothing)}
+
 
         }
 
@@ -339,57 +348,65 @@ class ShifumiActivity: BaseActivity() {
     suspend fun waitShowOpponent() {
 
         if (choiceOpponent == "rock"){
-            bt_choiceOpponent.setImageResource(R.drawable.pierre)
-            delay(3000)
-            bt_choiceOpponent.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.pierre) }
+            delay(1000)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.nothing) }
+
 
         } else if (choiceOpponent == "paper"){
-            bt_choiceOpponent.setImageResource(R.drawable.feuille)
-            delay(3000)
-            bt_choiceOpponent.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.feuille) }
+            delay(1000)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.nothing) }
+
 
         } else if (choiceOpponent == "scissors"){
-            bt_choiceOpponent.setImageResource(R.drawable.ciseaux)
-            delay(3000)
-            bt_choiceOpponent.setImageResource(R.drawable.nothing)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.ciseaux) }
+            delay(1000)
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.nothing) }
+
 
         } else {
-            bt_choiceOpponent.setImageResource(R.drawable.nothing)
-            delay(3000)
-            bt_choiceOpponent.setImageResource(R.drawable.nothing)
-
-        }
-    }
-
-    suspend fun timer(){
-
-        getGameData()
-
-        var timer = gameData.timer
-
-        if (user?.uid == roomData.userId1){
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.nothing) }
             delay(1000)
-            timer --
-            ShifumiHelper.updateTimer(roomId!!,timer)
-        } else{
-            choicePlayer = gameData.choicePlayer2
-            choiceOpponent = gameData.choicePlayer1
-        }
+            this.runOnUiThread { bt_choiceOpponent.setImageResource(R.drawable.nothing) }
 
+
+        }
     }
+
+//    suspend fun timer(){
+//
+//        getGameData()
+//
+//        var timer = gameData.timer
+//
+//        if (user?.uid == roomData.userId1){
+//            delay(1000)
+//            timer --
+//            ShifumiHelper.updateTimer(roomId!!,timer)
+//        } else{
+//            choicePlayer = gameData.choicePlayer2
+//            choiceOpponent = gameData.choicePlayer1
+//        }
+//
+//    }
 
 
     private fun startTimer(time_in_seconds: Long) {
+
+        setViewListeners()
+
         countdown_timer = object : CountDownTimer(time_in_seconds, 1000) {
             override fun onFinish() {
-                Log.d("TAG", "finish timer $roundFinish")
-                roundFinish = true
 
                 startShifumi()
                     if (!gameFinish){
                         time = 10000L
                         return startTimer(time)
+                    }else{
+                            winnerAndFinishActivity()
                     }
+
 
                 //time = 10000
             }
@@ -402,6 +419,24 @@ class ShifumiActivity: BaseActivity() {
         countdown_timer.start()
 
         //isRunning = true
+
+    }
+
+     fun winnerAndFinishActivity(){
+
+        getRoomData()
+//         this.runOnUiThread {Toast.makeText(getApplicationContext(), "Le gagnant est ${roomData.winner}", Toast.LENGTH_LONG).show();}
+
+         val builder = AlertDialog.Builder(this)
+         builder.setTitle("Le gagnant est ${roomData.winner}")
+//             .setMessage(getString(R.string.matchmaking_description))
+             .setCancelable(false)
+             .setNegativeButton(
+                 "Leave"
+             ) { dialog, which-> dialog.cancel()
+                 startMainCharacterActivity() }
+             .create()
+             .show()
 
     }
 
@@ -443,9 +478,10 @@ class ShifumiActivity: BaseActivity() {
 
     private fun shifumi(choicePlayer: String, choiceOpponent: String){
 
+        getChoicePlayerData()
+
         showChoice()
 
-        if (roundFinish == true){
 
             if (choicePlayer == "rock" && choiceOpponent == "scissors"){
                 // player win
@@ -546,35 +582,68 @@ class ShifumiActivity: BaseActivity() {
 
                 Toast.makeText(getApplicationContext(), getString(R.string.shifumi_null_point), Toast.LENGTH_LONG).show();
 
-            } else if(choicePlayer.length > 1 && choiceOpponent.isEmpty()){
+            } else if(choicePlayer.length > 1 && choiceOpponent.isEmpty()) {
 
                 // score +1
 
-                if (user?.uid == roomData.userId1){
+                if (user?.uid == roomData.userId1) {
 
                     val scorePlayer = gameData.scorePlayer1 + 1
-                    ShifumiHelper.updateScorePlayer1(roomId!!,scorePlayer)
+                    ShifumiHelper.updateScorePlayer1(roomId!!, scorePlayer)
 
 
-                } else{
+                } else {
 
                     val scorePlayer = gameData.scorePlayer2 + 1
-                    ShifumiHelper.updateScorePlayer2(roomId!!,scorePlayer)
+                    ShifumiHelper.updateScorePlayer2(roomId!!, scorePlayer)
                 }
 
-                Toast.makeText(getApplicationContext(), getString(R.string.shifumi_win_point), Toast.LENGTH_LONG).show();
+                Toast.makeText(
+                    getApplicationContext(),
+                    getString(R.string.shifumi_win_point),
+                    Toast.LENGTH_LONG
+                ).show();
 
             }
-            Log.d("TAG", "round  $roundFinish")
             //time = 10000L
 
             ShifumiHelper.updateValidateFalsePlayer1(roomId!!)
             ShifumiHelper.updateValidateFalsePlayer2(roomId!!)
+            getRoomData()
+            getGameData()
             isReady = false
+            endGame()
             setViewListeners()
+
+
+    }
+
+    private fun endGame(){
+        getGameData()
+        getRoomData()
+
+        if (gameData.scorePlayer1 == 3){
+            ShifumiHelper.setWinner(roomId!!,roomData.player1!!)
+            CharacterHelper.getCharacter(roomData.userId1).addOnSuccessListener {doc ->
+                val modelCharacter = doc.toObject(Character::class.java)!!
+                CharacterHelper.updateLuck(roomData.userId1,modelCharacter.luck!!+1)
+            }
+
+            gameFinish = true
+        } else if (gameData.scorePlayer2 == 3){
+            ShifumiHelper.setWinner(roomId!!,roomData.player2!!)
+            CharacterHelper.getCharacter(roomData.userId2).addOnSuccessListener {doc ->
+                val modelCharacter = doc.toObject(Character::class.java)!!
+                CharacterHelper.updateLuck(roomData.userId2,modelCharacter.luck!!+1)
+            }
+            gameFinish = true
         }
 
+    }
 
+    private fun startMainCharacterActivity() {
+        val intent = Intent(this, MainCharacterActivity::class.java)
+        startActivity(intent)
     }
 
 }

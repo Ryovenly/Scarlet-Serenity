@@ -101,7 +101,8 @@ class CreateCharacterActivity: BaseActivity() {
                 5,
                 5,
                 LocalDateTime.now().toString(),
-                LocalDateTime.now().toString())
+                LocalDateTime.now().toString(),
+            null)
 
                 val builder = AlertDialog.Builder(this)
                 builder.setTitle(getString(R.string.createCharacter))

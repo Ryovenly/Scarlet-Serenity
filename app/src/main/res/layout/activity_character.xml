@@ -83,6 +83,7 @@
                     android:layout_gravity="bottom"
                     android:layout_weight="0"
                     android:text="Logout" />
+
             </LinearLayout>
         </LinearLayout>
 
@@ -124,5 +125,21 @@
             app:srcCompat="@drawable/male_1" />
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="116dp">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="150dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="https://assets7.lottiefiles.com/temp/lf20_VAmWRg.json" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

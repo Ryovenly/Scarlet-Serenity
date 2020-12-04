@@ -32,6 +32,22 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="150dp" />
+
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom|right"
+            android:visibility="gone"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="https://assets5.lottiefiles.com/packages/lf20_x6wwkwp2.json" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

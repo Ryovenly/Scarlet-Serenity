@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="35"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+                <ProgressBar
+                    android:id="@+id/pb_stamina"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="45"
+                    android:progressTint="#e79322" />
+
+                <TextView
+                    android:id="@+id/tv_stamina"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Stamina"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+            <ImageButton
+                android:id="@+id/bt_leave"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_weight="0"
+                app:srcCompat="@android:drawable/btn_dialog" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_world"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            tools:listitem="@layout/list_item_world" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

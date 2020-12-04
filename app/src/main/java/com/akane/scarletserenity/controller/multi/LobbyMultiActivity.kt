@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_multi_lobby.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class LobbyMultiActivity: BaseActivity() {
 
@@ -84,7 +85,7 @@ class LobbyMultiActivity: BaseActivity() {
 
                     var isJoined = false
 
-                    GlobalScope.async {
+                    GlobalScope.launch {
                         isJoined = checkOpponent(roomId)
                         if (isJoined){
                             enterRoom(roomId)
@@ -97,7 +98,7 @@ class LobbyMultiActivity: BaseActivity() {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle(getString(R.string.matchmaking_title))
                         .setMessage(getString(R.string.matchmaking_description))
-                        .setCancelable(true)
+                        .setCancelable(false)
                         .setNegativeButton(
                         "Leave"
                         ) { dialog, which-> dialog.cancel()

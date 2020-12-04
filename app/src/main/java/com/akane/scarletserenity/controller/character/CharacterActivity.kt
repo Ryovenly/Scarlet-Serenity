@@ -39,6 +39,7 @@ class CharacterActivity : BaseActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_character)
 
+        createUserInFirestore()
         val mEmail = findViewById<TextView>(R.id.user_mail) as TextView
         mEmail.text = email
         val mlogout = findViewById<Button>(R.id.bt_logout) as Button
@@ -59,11 +60,14 @@ class CharacterActivity : BaseActivity()  {
 
     }
 
-    private fun checkCurrentUser(): Boolean {
-        // [START check_current_user]
-        val user = Firebase.auth.currentUser
-        return user != null
-        // [END check_current_user]
+    private fun createUserInFirestore(){
+
+        val uid = this.user?.uid
+        val username = this.user?.displayName
+
+        UserHelper.createUser(uid, username)
+        Log.d("ça marche", "Utilisateur créé")
+
     }
 
     private fun signOutUserFromFirebase() {

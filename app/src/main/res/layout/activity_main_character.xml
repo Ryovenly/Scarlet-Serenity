@@ -91,7 +91,7 @@
             <ImageView
                 android:id="@+id/ivCharacterBody"
                 android:layout_width="250dp"
-                android:layout_height="400dp"
+                android:layout_height="350dp"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/girl" />
 
@@ -109,13 +109,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bt_world"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Explorer" />
 
             <Button
                 android:id="@+id/bt_vote_activity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="Voter" />
         </LinearLayout>
 
@@ -158,4 +165,20 @@
         </FrameLayout>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="40dp"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="true"
+            app:lottie_url="https://assets4.lottiefiles.com/packages/lf20_xiuflspu.json" />
+    </FrameLayout>
 </RelativeLayout>
+

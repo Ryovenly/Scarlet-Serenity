@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/bt_leave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_character"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/tv_profil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Vous pouvez changer votre avatar en appuyant sur l'image" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_pseudo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="AKANE"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/tv_gender"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Homme" />
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Argent : 200 po" />
+
+            <TextView
+                android:id="@+id/tv_hp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Point de vie maximum : 1000" />
+
+            <TextView
+                android:id="@+id/tv_mana"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Point de mana maximum : 1000" />
+
+            <TextView
+                android:id="@+id/tv_stamina"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Points d'énergie : 100" />
+
+            <TextView
+                android:id="@+id/tv_hunger"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Points de satiété : 100" />
+
+            <TextView
+                android:id="@+id/tv_strength"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Force : 10" />
+
+            <TextView
+                android:id="@+id/tv_intelligence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Intelligence : 10" />
+
+            <TextView
+                android:id="@+id/tv_agility"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Agilité : 10" />
+
+            <TextView
+                android:id="@+id/tv_luck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chance : 10" />
+
+            <TextView
+                android:id="@+id/tv_created"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personnage crée le " />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

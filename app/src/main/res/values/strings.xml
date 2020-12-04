@@ -130,4 +130,8 @@
     <string name="save_db">Saved to DB</string>
     <string name="error_save_db">Error saving to DB</string>
     <string name="leave">Leave</string>
+    <string name="money">Money</string>
+    <string name="stamina">Stamina</string>
+    <string name="hunger">Hunger</string>
+    <string name="character_created">Character created at</string>
 </resources>
