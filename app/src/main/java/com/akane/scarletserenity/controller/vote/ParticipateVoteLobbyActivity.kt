@@ -77,9 +77,16 @@ class ParticipateVoteLobbyActivity: BaseActivity(), ScrutinParticipateAdapter.It
 
     override fun onItemClick(view: View?, position: Int) {
         val scrutinId = scrutins[position].id
+        val scrutinOrganizer = scrutins[position].organizer
 
       //  Toast.makeText(this, "$doc", Toast.LENGTH_SHORT).show()
-        startParticipateActivity(scrutinId!!)
+
+        if(scrutinOrganizer != user?.uid){
+            startParticipateActivity(scrutinId!!)
+        }else{
+            startAdminVoteActivity(scrutinId!!)
+        }
+
 
 
     }
@@ -90,8 +97,10 @@ class ParticipateVoteLobbyActivity: BaseActivity(), ScrutinParticipateAdapter.It
         startActivity(intent)
     }
 
-    private fun startMainCharacterActivity() {
-        val intent = Intent(this, MainCharacterActivity::class.java)
+
+    private fun startAdminVoteActivity(scrutinId: String){
+        val intent = Intent(this, AdminVote::class.java)
+        intent.putExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID", scrutinId)
         startActivity(intent)
     }
 

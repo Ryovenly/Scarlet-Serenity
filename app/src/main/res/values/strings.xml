@@ -134,4 +134,5 @@
     <string name="stamina">Stamina</string>
     <string name="hunger">Hunger</string>
     <string name="character_created">Character created at</string>
+    <string name="voters">Voters</string>
 </resources>

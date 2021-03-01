@@ -21,20 +21,16 @@ import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.ktx.storage
 import kotlinx.android.synthetic.main.activity_participate_vote.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.time.days
 
-class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListener {
+open class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListener {
 
     var purposes = ArrayList<Purpose>()
     var voters = 0
     var isVoted = false
-    private lateinit var scrutin:Scrutin
-    private lateinit var purpose: Purpose
+    lateinit var scrutin:Scrutin
+    lateinit var purpose: Purpose
     lateinit var adapter: PurposeParticipateAdapter
     var purposeRegistration: ListenerRegistration? = null
 
@@ -52,7 +48,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
 
     }
 
-    private fun onViewListener(){
+    fun onViewListener(){
         bt_leave.setOnClickListener {
             finish()
         }
@@ -63,11 +59,11 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
     }
 
 
-    private fun initListRecyclerView() {
+    fun initListRecyclerView() {
 
-        rv_purpose_create.layoutManager = LinearLayoutManager(this)
+        rv_purpose.layoutManager = LinearLayoutManager(this)
         adapter = PurposeParticipateAdapter(purposes)
-        rv_purpose_create.adapter = adapter
+        rv_purpose.adapter = adapter
         adapter.setClickListener(this)
 
             listenForPurposes()
@@ -75,7 +71,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
     }
 
 
-    private fun getScrutin() {
+     fun getScrutin() {
 
         val scrutinId = intent.getStringExtra("INTENT_EXTRA_PARTICIPATE_SCRUTINID")
 
@@ -116,7 +112,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
                         Log.d("TAG", "Voters : $voters ", exception)
                     }
                 }
-                rv_purpose_create.adapter?.notifyDataSetChanged()
+                rv_purpose.adapter?.notifyDataSetChanged()
                 tv_voters.text = "Nombre de votants : $voters"
                // initVoters()
                 Log.d("TAG", "Voters : $voters ", exception)
@@ -159,7 +155,7 @@ class ParticipateVote: BaseActivity(),PurposeParticipateAdapter.ItemClickListene
 
 
     @SuppressLint("SetTextI18n")
-    private fun initScrutin(){
+    fun initScrutin(){
 
         tv_topic.text = scrutin.title
 

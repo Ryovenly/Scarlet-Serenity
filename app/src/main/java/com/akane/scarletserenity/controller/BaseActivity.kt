@@ -1,5 +1,6 @@
 package com.akane.scarletserenity.controller
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
@@ -9,6 +10,7 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.akane.scarletserenity.R
+import com.akane.scarletserenity.controller.character.MainCharacterActivity
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
@@ -85,6 +87,14 @@ open class BaseActivity: AppCompatActivity(),TextToSpeech.OnInitListener {
         tts!!.stop()
         tts!!.shutdown()
         super.onDestroy()
+    }
+
+
+    // Activity
+
+    fun startMainCharacterActivity() {
+        val intent = Intent(this, MainCharacterActivity::class.java)
+        startActivity(intent)
     }
 
 }

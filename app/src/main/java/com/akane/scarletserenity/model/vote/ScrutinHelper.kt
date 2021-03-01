@@ -51,6 +51,17 @@ object ScrutinHelper {
             ?.document()?.id
     }
 
+    fun getVoters(scrutinId: String, purposeId: String): Int {
+
+        var size = 0
+        getVoterCollection(scrutinId, purposeId)?.get()?.addOnCompleteListener { task ->
+            if (task.isSuccessful){
+                size = task.getResult()?.size()!!
+            }
+        }
+
+        return size
+    }
     // --- DELETE ---
 
     fun deleteScrutin(scrutinId: String): Task<Void>? {

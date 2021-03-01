@@ -181,9 +181,5 @@ class CharacterActivity : BaseActivity()  {
         startActivity(intent)
     }
 
-    private fun startMainCharacterActivity() {
-        val intent = Intent(this, MainCharacterActivity::class.java)
-        startActivity(intent)
-    }
 }
 

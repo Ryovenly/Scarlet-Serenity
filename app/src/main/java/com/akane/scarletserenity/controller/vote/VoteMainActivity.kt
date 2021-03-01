@@ -27,7 +27,7 @@ class VoteMainActivity : BaseActivity() {
         }
 
         bt_leave.setOnClickListener {
-            finish()
+            startMainCharacterActivity()
         }
     }
 

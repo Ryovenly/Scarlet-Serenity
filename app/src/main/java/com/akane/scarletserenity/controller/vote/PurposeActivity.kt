@@ -37,9 +37,9 @@ class PurposeActivity : BaseActivity(),PurposeAdapter.ItemClickListener {
 
     private fun initListRecyclerView() {
 
-        rv_purpose_create.layoutManager = LinearLayoutManager(this)
+        rv_purpose.layoutManager = LinearLayoutManager(this)
         adapter = PurposeAdapter(purposes)
-        rv_purpose_create.adapter = adapter
+        rv_purpose.adapter = adapter
         adapter.setClickListener(this)
     }
 
@@ -56,7 +56,7 @@ class PurposeActivity : BaseActivity(),PurposeAdapter.ItemClickListener {
     private fun addPurpose(){
 
         purposes.add(Purpose(mTitle.text.toString(),mDescription.text.toString()))
-        rv_purpose_create.adapter?.notifyDataSetChanged()
+        rv_purpose.adapter?.notifyDataSetChanged()
         mTitle.text.clear()
         mDescription.text.clear()
 
@@ -93,6 +93,6 @@ class PurposeActivity : BaseActivity(),PurposeAdapter.ItemClickListener {
 
     override fun onItemClick(view: View?, position: Int) {
         deletePurpose(position)
-        rv_purpose_create.adapter?.notifyDataSetChanged()
+        rv_purpose.adapter?.notifyDataSetChanged()
     }
 }

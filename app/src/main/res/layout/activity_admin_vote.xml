@@ -71,13 +71,11 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_purpose_create"
+            android:id="@+id/rv_purpose_admin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:listitem="@layout/list_item_purpose_admin">
-
-        </androidx.recyclerview.widget.RecyclerView>
+            tools:listitem="@layout/list_item_purpose_admin" />
 
         <Button
             android:id="@+id/bt_leave"
